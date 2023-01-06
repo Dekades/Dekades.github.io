@@ -1,81 +1,70 @@
+<!doctype html>
 <html>
   <head>
-    <title>Hello World Screensaver</title>
+    <title>Linksammlung</title>
     <style>
       body {
         background-color: black;
-        overflow: hidden;
+        margin: 0;
+        padding: 0;
       }
-      h1 {
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .link-list {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .link {
+        width: 50%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .link a {
         color: white;
-        font-family: verdana;
-        font-size: 300%;
-        position: absolute;
+        text-decoration: none;
+        display: block;
+        padding: 20px;
+        border: 1px solid gray;
+        border-radius: 10px;
+        transition: 0.3s;
       }
-      .heart {
-        color: magenta;
-        font-size: 200%;
-        position: absolute;
-        display: none;
+      .link a:hover {
+        background-color: blue;
+      }
+      @media (min-width: 600px) {
+        .link {
+          width: 25%;
+        }
       }
     </style>
   </head>
   <body>
-    <h1 id="text">Hello Wörzie</h1>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <script>
-      const text = document.getElementById("text");
-      const hearts = document.querySelectorAll(".heart");
-      let x = 0;
-      let y = 0
-      let dx = 1;
-      let dy = 1;
-      setInterval(function() {
-        text.style.left = x + "px";
-        text.style.top = y + "px";
-        x += dx;
-        y += dy;
-        if (x + text.offsetWidth > window.innerWidth || x < 0) {
-          dx *= -1;
-          if (text.innerHTML === "Hello Wörzie") {
-            text.innerHTML = "hab dich lieb";
-            hearts.forEach(function(heart) {
-              heart.style.left = Math.random() * window.innerWidth + "px";
-              heart.style.top = Math.random() * window.innerHeight + "px";
-              heart.style.display = "block";
-            });
-          } else {
-            text.innerHTML = "Hello Wörzie";
-            hearts.forEach(function(heart) {
-              heart.style.display = "none";
-            });
-          }
-        }
-        if (y + text.offsetHeight > window.innerHeight || y < 0) {
-          dy *= -1;
-          if (text.innerHTML === "Hello Wörzie") {
-            text.innerHTML = "hab dich lieb";
-            hearts.forEach(function(heart) {
-              heart.style.left = Math.random() * window.innerWidth + "px";
-              heart.style.top = Math.random() * window.innerHeight + "px";
-              heart.style.display = "block";
-            });
-          } else {
-            text.innerHTML = "Hello Wörzie";
-            hearts.forEach(function(heart) {
-              heart.style.display = "none";
-            });
-          }
-        }
-        hearts.forEach(function(heart) {
-          heart.style.left = parseInt(heart.style.left, 10) + Math.random() * 5 - 2.5 + "px";
-          heart.style.top = parseInt(heart.style.top, 10) + Math.random() * 5 - 2.5 + "px";
-        });
-      }, 10);
-    </script>
+    <h1 style="color:blue;text-align:center;">All the Links</h1>
+    <div class="container">
+      <h1>Link Collection</h1>
+      <div class="link-list">
+        <div class="link">
+          <a href="html/Caro.html">Caro</a>
+        </div>
+        <div class="link">
+          <a href="https://www.youtube.com/">YouTube</a>
+        </div>
+        <div class="link">
+          <a href="https://www.facebook.com/">Facebook</a>
+        </div>
+        <div class="link">
+          <a href="https://www.twitter.com/">Twitter</a>
+        </div>
+        <div class="link">
+          <a href="https://www.reddit.com/">Reddit</a>
+        </div>
+        <div class="link">
+          <a href="https://www.instagram.com/">Instagram</a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
