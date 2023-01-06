@@ -21,42 +21,60 @@
     </style>
   </head>
   <body>
-    <h1 id="text">Hello Wörz</h1>
+    <h1 id="text">Hello Wörzie</h1>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
     <div class="heart">❤️</div>
     <script>
       const text = document.getElementById("text");
-      const heart = document.querySelector(".heart");
+      const hearts = document.querySelectorAll(".heart");
       let x = 0;
-      let y = 0;
+      let y = 0
       let dx = 1;
       let dy = 1;
       setInterval(function() {
         text.style.left = x + "px";
         text.style.top = y + "px";
-        heart.style.left = x + "px";
-        heart.style.top = y + "px";
         x += dx;
         y += dy;
         if (x + text.offsetWidth > window.innerWidth || x < 0) {
           dx *= -1;
-          if (text.innerHTML === "Hello Wörz") {
+          if (text.innerHTML === "Hello Wörzie") {
             text.innerHTML = "hab dich lieb";
-            heart.style.display = "block";
+            hearts.forEach(function(heart) {
+              heart.style.left = Math.random() * window.innerWidth + "px";
+              heart.style.top = Math.random() * window.innerHeight + "px";
+              heart.style.display = "block";
+            });
           } else {
-            text.innerHTML = "Hello Wörz";
-            heart.style.display = "none";
+            text.innerHTML = "Hello Wörzie";
+            hearts.forEach(function(heart) {
+              heart.style.display = "none";
+            });
           }
         }
         if (y + text.offsetHeight > window.innerHeight || y < 0) {
           dy *= -1;
-          if (text.innerHTML === "Hello Wörz") {
+          if (text.innerHTML === "Hello Wörzie") {
             text.innerHTML = "hab dich lieb";
-            heart.style.display = "block";
+            hearts.forEach(function(heart) {
+              heart.style.left = Math.random() * window.innerWidth + "px";
+              heart.style.top = Math.random() * window.innerHeight + "px";
+              heart.style.display = "block";
+            });
           } else {
-            text.innerHTML = "Hello Wörz";
-            heart.style.display = "none";
+            text.innerHTML = "Hello Wörzie";
+            hearts.forEach(function(heart) {
+              heart.style.display = "none";
+            });
           }
         }
+        hearts.forEach(function(heart) {
+          heart.style.left = parseInt(heart.style.left, 10) + Math.random() * 5 - 2.5 + "px";
+          heart.style.top = parseInt(heart.style.top, 10) + Math.random() * 5 - 2.5 + "px";
+        });
       }, 10);
     </script>
   </body>
