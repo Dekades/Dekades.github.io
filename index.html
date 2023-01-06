@@ -29,9 +29,19 @@
         y += dy;
         if (x + text.offsetWidth > window.innerWidth || x < 0) {
           dx *= -1;
+          if (text.innerHTML === "Hello Wörz") {
+            text.innerHTML = "hab dich lieb";
+          } else {
+            text.innerHTML = "Hello Wörz";
+          }
         }
         if (y + text.offsetHeight > window.innerHeight || y < 0) {
           dy *= -1;
+          if (text.innerHTML === "Hello Wörz") {
+            text.innerHTML = "hab dich lieb";
+          } else {
+            text.innerHTML = "Hello Wörz";
+          }
         }
       }, 10);
     </script>
